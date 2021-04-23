@@ -6,7 +6,7 @@
 // Directions:
 //  1. Rename this file, substituting "yourname" with your name
 //  2. Replace "yourname" with your name in the variable below
-exports.name = "yourname";
+exports.name = "JacobCrawford";
 //  3. Add optimizations to the solution below
 //  4. Upload your optimized solution 
 
@@ -14,7 +14,8 @@ exports.name = "yourname";
 isPalindrome = (num) => {
     // determine if input value matches it's reversed value (i.e. check if it's a palindrome!)
     strNum = num.toString();
-    return strNum === strNum.split("").reverse().join("");
+    return strNum === strNum.split("").reverse().join(""); //boolean
+
 }
 
 
@@ -23,28 +24,25 @@ exports.getLargestPalindrome = (N) => {
     let largestPalindrome = 0;
 
     // iterate through range of multiplicands
-    for (let i = 10 ** (N - 1); i < 10 ** N; i++) {
+    for (let i = 10 ** (N - 1); i < 10 ** N; i++) { //from 100 to 999
         for (let j = 10 ** (N - 1); j < 10 ** N; j++) {
 
             // check if the product is a palindrome
-            if (isPalindrome(i * j)) {
-
-                // check if it's larger than our largest palindrome
-                if (i * j > largestPalindrome) {
-                    
+            // check if it's larger than our largest palindrome
+            if (isPalindrome(i * j) && (i*j > largestPalindrome)) {
                     // update largest palindrome
                     largestPalindrome = i * j;
-                }
+                
             }
         }
     }
 
     // return result
-    return largestPalidrome;
+    return largestPalindrome;
 }
 
 // input
-const N = 3;
+const N = 4;
 
 // CHALLENGE: Can you optimize the algorithm above so that works for input values N=4, N=5, N=6 
 //  in a "reasonable" amount of time?
